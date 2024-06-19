@@ -21,19 +21,23 @@ params = {
 
 app = FastAPI()
 
-@app.post("/")
-async def receive_updates(request: Request):
-    data = await request.json()
-    print("Received Update:")
-    print(data)
-    try:
-        response = requests.post(url, data=params)
-        data = response.json()
-        if data['ok']:
-            print(f'Message sent to {chat_id}: {message_text}')
-        else:
-            print(f'Failed to send the message. Telegram API response: {data}')
-    except requests.exceptions.RequestException as e:
-        print(f'An error occurred: {e}')
-    return {"status": "ok"}
+# @app.post("/")
+# async def receive_updates(request: Request):
+#     data = await request.json()
+#     print("Received Update:")
+#     print(data)
+#     try:
+#         response = requests.post(url, data=params)
+#         data = response.json()
+#         if data['ok']:
+#             print(f'Message sent to {chat_id}: {message_text}')
+#         else:
+#             print(f'Failed to send the message. Telegram API response: {data}')
+#     except requests.exceptions.RequestException as e:
+#         print(f'An error occurred: {e}')
+#     return {"status": "ok"}
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+        return """Hello Grammar Bot!"""
 
