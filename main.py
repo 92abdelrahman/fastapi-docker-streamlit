@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 import requests
+from fastapi.responses import HTMLResponse
 
 # Replace 'YOUR_BOT_API_TOKEN' with your Telegram Bot API token
 bot_token = '6092786649:AAH3hbNKWEwZ3n7F9kYz1CQ2sVXJ7gFxpu0'
